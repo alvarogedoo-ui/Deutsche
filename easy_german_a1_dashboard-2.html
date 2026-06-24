@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Easy German A1 — 83 فيديو</title>
+<style>
+:root{
+  --bg:#fbf7f0;
+  --bg-deep:#f3ecdf;
+  --ink:#2a1f1a;
+  --ink-soft:#6b5d52;
+  --maroon:#7a1f2b;
+  --maroon-deep:#5c1620;
+  --gold:#b8862f;
+  --gold-soft:#e8d3a0;
+  --green:#2f6b4f;
+  --green-bg:#e7f1ea;
+  --red:#a3293a;
+  --blue:#1d4f7a;
+  --blue-bg:#e8f0f8;
+  --purple:#5c2d91;
+  --purple-bg:#ede8f5;
+  --card:#ffffff;
+  --line:#e4d8c4;
+  --radius:14px;
+  --serif:'Iowan Old Style','Palatino Linotype',Georgia,'Times New Roman',serif;
+  --sans:-apple-system,BlinkMacSystemFont,'Segoe UI',Tahoma,sans-serif;
+}
+*{box-sizing:border-box;}
+html,body{margin:0;padding:0;}
+body{
+  background:
+    radial-gradient(circle at 12% 8%,rgba(122,31,43,.05),transparent 38%),
+    radial-gradient(circle at 90% 90%,rgba(184,134,47,.07),transparent 42%),
+    var(--bg);
+  color:var(--ink);
+  font-family:var(--sans);
+  -webkit-font-smoothing:antialiased;
+  min-height:100vh;
+  direction:rtl;
+}
+.wrap{max-width:780px;margin:0 auto;padding:18px 16px 100px;}
+
+/* HEADER */
+.masthead{text-align:center;padding:28px 10px 22px;border-bottom:3px double var(--maroon);margin-bottom:22px;position:relative;}
+.masthead .kicker{font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);font-weight:700;margin-bottom:6px;}
+.masthead h1{font-family:var(--serif);font-size:26px;margin:0;color:var(--maroon-deep);line-height:1.2;}
+.masthead .sub{color:var(--ink-soft);font-size:13px;margin-top:6px;}
+.flag-deco{position:absolute;top:18px;font-size:30px;opacity:.85;}
+.flag-deco.left{left:10px;}
+.flag-deco.right{right:10px;}
+
+/* STATS */
+.dash{display:flex;gap:10px;margin-bottom:22px;flex-wrap:wrap;}
+.dash .stat{flex:1;min-width:90px;background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:12px 10px;text-align:center;}
+.dash .stat .num{font-family:var(--serif);font-size:24px;font-weight:700;color:var(--maroon-deep);display:block;}
+.dash .stat .lbl{font-size:10.5px;color:var(--ink-soft);letter-spacing:.05em;line-height:1.4;margin-top:2px;}
+.dash .stat.s-done .num{color:var(--green);}
+.dash .stat.s-remain .num{color:var(--blue);}
+.dash .stat.s-pct .num{color:var(--gold);}
+
+/* MASTER BAR */
+.master-bar-wrap{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:18px 18px 16px;margin-bottom:22px;}
+.master-bar-label{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px;}
+.master-bar-label .title{font-family:var(--serif);font-size:16px;color:var(--maroon-deep);font-weight:700;}
+.master-bar-label .pct{font-family:var(--serif);font-size:20px;font-weight:700;color:var(--gold);}
+.bar-outer{height:14px;background:var(--bg-deep);border-radius:10px;overflow:hidden;}
+.bar-inner{height:100%;background:linear-gradient(90deg,var(--gold),var(--maroon));border-radius:10px;transition:width .4s ease;min-width:4px;}
+
+/* PHASE LABELS ROW */
+.phase-row{display:flex;gap:8px;margin-top:10px;flex-wrap:wrap;}
+.phase-pill{font-size:11px;font-weight:700;border-radius:20px;padding:3px 10px;background:var(--bg-deep);color:var(--ink-soft);}
+.phase-pill.p1{background:#fdf0e0;color:#7a4a00;}
+.phase-pill.p2{background:var(--blue-bg);color:var(--blue);}
+.phase-pill.p3{background:var(--green-bg);color:var(--green);}
+.phase-pill.p4{background:var(--purple-bg);color:var(--purple);}
+
+/* SECTION HEAD */
+.section-head{font-family:var(--serif);font-size:18px;color:var(--maroon-deep);font-weight:700;margin:28px 0 14px;padding-bottom:8px;border-bottom:2px solid var(--gold-soft);display:flex;align-items:center;gap:8px;flex-wrap:wrap;}
+.section-head .badge{color:#fff;font-size:11px;border-radius:20px;padding:2px 10px;font-family:var(--sans);font-weight:700;letter-spacing:.04em;}
+.badge-p1{background:#b87000;}
+.badge-p2{background:var(--blue);}
+.badge-p3{background:var(--green);}
+.badge-p4{background:var(--purple);}
+
+/* VIDEO LIST */
+.vid-list{display:flex;flex-direction:column;gap:8px;margin-bottom:10px;}
+.vid-item{
+  display:flex;align-items:center;gap:12px;
+  background:var(--card);border:1.5px solid var(--line);border-radius:11px;
+  padding:12px 14px;cursor:pointer;
+  transition:border-color .12s,background .12s;
+}
+.vid-item:hover{border-color:var(--gold);background:var(--bg);}
+.vid-item.checked{border-color:var(--green);background:var(--green-bg);}
+.vid-num{
+  font-family:var(--serif);font-size:18px;font-weight:700;
+  color:var(--gold);width:32px;text-align:center;flex-shrink:0;
+}
+.vid-item.checked .vid-num{color:var(--green);}
+.vid-info{flex:1;min-width:0;}
+.vid-title{font-size:13.5px;font-weight:700;color:var(--ink);direction:ltr;text-align:left;}
+.vid-check{font-size:20px;flex-shrink:0;opacity:0;transition:opacity .12s;}
+.vid-item.checked .vid-check{opacity:1;}
+
+/* PHASE DIVIDER */
+.phase-divider{text-align:center;margin:28px 0 20px;position:relative;}
+.phase-divider::before{content:'';position:absolute;top:50%;left:0;right:0;height:1px;background:var(--line);}
+.phase-divider-inner{position:relative;display:inline-block;background:var(--bg);padding:6px 20px;border:2px solid var(--gold-soft);border-radius:30px;font-family:var(--serif);font-size:13px;color:var(--maroon-deep);font-weight:700;}
+
+/* FOOTER */
+.footer-area{text-align:center;margin-top:36px;padding-top:16px;border-top:1px solid var(--line);}
+.reset-btn{background:transparent;border:1px solid var(--line);color:var(--ink-soft);border-radius:9px;padding:9px 20px;font-size:12.5px;font-weight:600;cursor:pointer;font-family:var(--sans);}
+.reset-btn:hover{border-color:var(--red);color:var(--red);}
+
+/* FAB */
+.fab{position:fixed;bottom:18px;left:18px;background:var(--maroon);color:#fff;border-radius:50px;padding:11px 18px;font-size:13px;font-weight:700;box-shadow:0 6px 18px rgba(122,31,43,.35);cursor:pointer;border:none;z-index:50;font-family:var(--sans);}
+.fab:active{transform:scale(.97);}
+
+@media(max-width:480px){
+  .masthead h1{font-size:21px;}
+  .dash .stat .num{font-size:20px;}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="masthead">
+    <div class="flag-deco left">🇩🇪</div>
+    <div class="flag-deco right">🎯</div>
+    <div class="kicker">EASY GERMAN A1 CHALLENGE</div>
+    <h1>تحدي Easy German A1<br><span style="font-size:.62em;color:var(--gold);">83 فيديو · من المبتدئ للشهادة</span></h1>
+    <div class="sub">٤ مراحل · اتك كل فيديو لما تخلصه ✅</div>
+  </div>
+
+  <!-- STATS -->
+  <div class="dash">
+    <div class="stat s-done">
+      <span class="num" id="stat-done">0</span>
+      <div class="lbl">فيديو مكتمل<br>من ٨٣</div>
+    </div>
+    <div class="stat s-pct">
+      <span class="num" id="stat-pct">0%</span>
+      <div class="lbl">نسبة<br>الإنجاز</div>
+    </div>
+    <div class="stat s-remain">
+      <span class="num" id="stat-remain">83</span>
+      <div class="lbl">فيديو<br>متبقي</div>
+    </div>
+  </div>
+
+  <!-- MASTER BAR -->
+  <div class="master-bar-wrap">
+    <div class="master-bar-label">
+      <div class="title">📊 التقدم الكلي</div>
+      <div class="pct" id="master-pct">0%</div>
+    </div>
+    <div class="bar-outer"><div class="bar-inner" id="master-bar" style="width:0%"></div></div>
+    <div class="phase-row">
+      <span class="phase-pill p1">🟡 الأساسيات ١–٢٠</span>
+      <span class="phase-pill p2">🔵 الحياة اليومية ٢١–٤٠</span>
+      <span class="phase-pill p3">🟢 القواعد ٤١–٦٠</span>
+      <span class="phase-pill p4">🟣 الشهادة ٦١–٨٣</span>
+    </div>
+  </div>
+
+  <!-- PHASE 1 -->
+  <div class="section-head">
+    🟡 الأساسيات الأولى
+    <span class="badge badge-p1">Episodes 1–20</span>
+  </div>
+  <div class="vid-list" id="phase1"></div>
+
+  <div class="phase-divider"><div class="phase-divider-inner">🏁 انتهيت من الأساسيات؟ كمّل! 💪</div></div>
+
+  <!-- PHASE 2 -->
+  <div class="section-head">
+    🔵 الحياة اليومية والتواصل
+    <span class="badge badge-p2">Episodes 21–40</span>
+  </div>
+  <div class="vid-list" id="phase2"></div>
+
+  <div class="phase-divider"><div class="phase-divider-inner">🏁 نص الطريق خلص! الجزء الأقوى جاي 🔥</div></div>
+
+  <!-- PHASE 3 -->
+  <div class="section-head">
+    🟢 تعميق القواعد والسياق
+    <span class="badge badge-p3">Episodes 41–60</span>
+  </div>
+  <div class="vid-list" id="phase3"></div>
+
+  <div class="phase-divider"><div class="phase-divider-inner">🏁 ٦٠ فيديو خلصوا — الشهادة في الأفق! 🎓</div></div>
+
+  <!-- PHASE 4 -->
+  <div class="section-head">
+    🟣 التحضير لشهادة A1
+    <span class="badge badge-p4">Episodes 61–83</span>
+  </div>
+  <div class="vid-list" id="phase4"></div>
+
+  <div class="footer-area">
+    <button class="reset-btn" onclick="confirmReset()">🗑️ إعادة تعيين كل التقدم</button>
+    <div style="font-size:11px;color:var(--ink-soft);margin-top:10px;">التقدم محفوظ تلقائياً في المتصفح · Created by Dr GEDDO3 💀🦷</div>
+  </div>
+</div>
+
+<button class="fab" onclick="window.scrollTo({top:0,behavior:'smooth'})">⬆ أعلى الصفحة</button>
+
+<script>
+const VIDEOS = [
+  // Phase 1: 1–20
+  {id:1,  phase:1, title:"Hallo, wie geht's?"},
+  {id:2,  phase:1, title:"Wie heißt du?"},
+  {id:3,  phase:1, title:"Woher kommst du?"},
+  {id:4,  phase:1, title:"Was machst du?"},
+  {id:5,  phase:1, title:"Meine Familie"},
+  {id:6,  phase:1, title:"Zahlen und Alphabet"},
+  {id:7,  phase:1, title:"Die Wochentage"},
+  {id:8,  phase:1, title:"Die Monate und Jahreszeiten"},
+  {id:9,  phase:1, title:"Wie spät ist es?"},
+  {id:10, phase:1, title:"Das Wetter heute"},
+  {id:11, phase:1, title:"Meine Hobbys"},
+  {id:12, phase:1, title:"Was isst du gerne?"},
+  {id:13, phase:1, title:"Im Supermarkt"},
+  {id:14, phase:1, title:"Farben und Kleidung"},
+  {id:15, phase:1, title:"Meine Wohnung"},
+  {id:16, phase:1, title:"In der Stadt"},
+  {id:17, phase:1, title:"Nach dem Weg fragen"},
+  {id:18, phase:1, title:"Im Restaurant bestellen"},
+  {id:19, phase:1, title:"Mein Tagesablauf"},
+  {id:20, phase:1, title:"Berufe und Arbeit"},
+  // Phase 2: 21–40
+  {id:21, phase:2, title:"Was hast du gestern gemacht?"},
+  {id:22, phase:2, title:"Pläne für das Wochenende"},
+  {id:23, phase:2, title:"Beim Arzt: Schmerzen und Krankheiten"},
+  {id:24, phase:2, title:"Einladungen und Feste"},
+  {id:25, phase:2, title:"Herzlichen Glückwunsch!"},
+  {id:26, phase:2, title:"Haustiere und Lieblingstiere"},
+  {id:27, phase:2, title:"Transport: Bus, Bahn und Auto"},
+  {id:28, phase:2, title:"Am Bahnhof kaufen"},
+  {id:29, phase:2, title:"Einkaufen gehen: Kleidung suchen"},
+  {id:30, phase:2, title:"Gefühle: Glücklich, traurig, müde"},
+  {id:31, phase:2, title:"Körperteile"},
+  {id:32, phase:2, title:"Das gefällt mir! (Vorlieben)"},
+  {id:33, phase:2, title:"Mein Traumhaus"},
+  {id:34, phase:2, title:"Schule und Lernen"},
+  {id:35, phase:2, title:"Sprachen lernen"},
+  {id:36, phase:2, title:"Urlaub und Reisen"},
+  {id:37, phase:2, title:"Koffer packen"},
+  {id:38, phase:2, title:"Im Hotel einchecken"},
+  {id:39, phase:2, title:"Deutsche Kultur: Pünktlichkeit"},
+  {id:40, phase:2, title:"Frühstück in Deutschland"},
+  // Phase 3: 41–60
+  {id:41, phase:3, title:"Was darf ich hier tun? (Modalverben)"},
+  {id:42, phase:3, title:"Ich muss arbeiten!"},
+  {id:43, phase:3, title:"Kannst du mir helfen?"},
+  {id:44, phase:3, title:"Geschenke für Freunde"},
+  {id:45, phase:3, title:"Das Wetter im Wandel"},
+  {id:46, phase:3, title:"Sport und Fitness"},
+  {id:47, phase:3, title:"Meine Lieblingsmusik"},
+  {id:48, phase:3, title:"Filme und Serien schauen"},
+  {id:49, phase:3, title:"Ein normaler Samstag"},
+  {id:50, phase:3, title:"Kochen zu Hause"},
+  {id:51, phase:3, title:"Mein Lieblingsrezept"},
+  {id:52, phase:3, title:"Obst und Gemüse"},
+  {id:53, phase:3, title:"In der Natur: Wald und Berge"},
+  {id:54, phase:3, title:"Am Strand und Meer"},
+  {id:55, phase:3, title:"Post und Pakete verschicken"},
+  {id:56, phase:3, title:"Telefonieren auf Deutsch"},
+  {id:57, phase:3, title:"Termine vereinbaren"},
+  {id:58, phase:3, title:"Kleingeld und Bezahlen"},
+  {id:59, phase:3, title:"Auf dem Flohmarkt"},
+  {id:60, phase:3, title:"Deutsche Küche: Brot und Wurst"},
+  // Phase 4: 61–83
+  {id:61, phase:4, title:"Im Café sitzen"},
+  {id:62, phase:4, title:"Wie war dein Urlaub?"},
+  {id:63, phase:4, title:"Feste in Deutschland: Weihnachten"},
+  {id:64, phase:4, title:"Silvester und Neujahr"},
+  {id:65, phase:4, title:"Geburtstag feiern"},
+  {id:66, phase:4, title:"Gesunder Lebensstil"},
+  {id:67, phase:4, title:"Stress und Entspannung"},
+  {id:68, phase:4, title:"Wohnen: Küche und Bad"},
+  {id:69, phase:4, title:"Meine Nachbarn"},
+  {id:70, phase:4, title:"Haushaltsgeräte"},
+  {id:71, phase:4, title:"Internet und Soziale Medien"},
+  {id:72, phase:4, title:"Nachrichten verstehen"},
+  {id:73, phase:4, title:"Zeitformen: Präsens und Perfekt"},
+  {id:74, phase:4, title:"Präpositionen im Alltag"},
+  {id:75, phase:4, title:"Akkusativ oder Dativ?"},
+  {id:76, phase:4, title:"Adjektive benutzen"},
+  {id:77, phase:4, title:"Gegenteile finden (Groß und klein)"},
+  {id:78, phase:4, title:"Einen Brief schreiben (A1-Prüfung)"},
+  {id:79, phase:4, title:"Eine E-Mail beantworten"},
+  {id:80, phase:4, title:"Sich vorstellen (Sprechprüfung A1)"},
+  {id:81, phase:4, title:"Fragen stellen und antworten"},
+  {id:82, phase:4, title:"Typische Fehler auf A1 vermeiden"},
+  {id:83, phase:4, title:"🏆 Geschafft! Das A1-Finale"},
+];
+
+let state = JSON.parse(localStorage.getItem('eg_a1_state') || '{}');
+function saveState(){ localStorage.setItem('eg_a1_state', JSON.stringify(state)); }
+function vKey(id){ return 'v'+id; }
+
+function buildLists(){
+  const containers = {1:'phase1',2:'phase2',3:'phase3',4:'phase4'};
+  VIDEOS.forEach(v => {
+    const el = document.createElement('div');
+    el.className = 'vid-item' + (state[vKey(v.id)] ? ' checked' : '');
+    el.id = 'vid-'+v.id;
+    el.innerHTML = `
+      <div class="vid-num">${v.id}</div>
+      <div class="vid-info">
+        <div class="vid-title">${v.title}</div>
+      </div>
+      <div class="vid-check">✅</div>
+    `;
+    el.onclick = () => toggleVid(v.id);
+    document.getElementById(containers[v.phase]).appendChild(el);
+  });
+}
+
+function toggleVid(id){
+  state[vKey(id)] = !state[vKey(id)];
+  saveState();
+  document.getElementById('vid-'+id).classList.toggle('checked', state[vKey(id)]);
+  refreshStats();
+}
+
+function refreshStats(){
+  const done = VIDEOS.filter(v => state[vKey(v.id)]).length;
+  const pct = Math.round((done/83)*100);
+  document.getElementById('stat-done').textContent = done;
+  document.getElementById('stat-pct').textContent = pct+'%';
+  document.getElementById('stat-remain').textContent = 83-done;
+  document.getElementById('master-pct').textContent = pct+'%';
+  document.getElementById('master-bar').style.width = pct+'%';
+}
+
+function confirmReset(){
+  if(confirm('هتمسح كل التقدم؟ 😬')){
+    localStorage.removeItem('eg_a1_state');
+    state={};
+    location.reload();
+  }
+}
+
+buildLists();
+refreshStats();
+</script>
+</body>
+</html>
